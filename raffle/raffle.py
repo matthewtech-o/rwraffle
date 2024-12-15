@@ -20,7 +20,7 @@ lottie_winner = load_lottieurl(LOTTIE_URL_WINNER)
 lottie_loading = load_lottieurl(LOTTIE_URL_LOADING)
 
 # Company Branding
-COMPANY_LOGO_URL = "https://github.com/matthewtech-o/rwraffle/blob/main/raffle/redwire-logo-color%20(2).svg"
+COMPANY_LOGO_URL = "https://raw.githubusercontent.com/matthewtech-o/rwraffle/refs/heads/main/raffle/redwire-logo-color%20(2).svg"
 PRIMARY_COLOR = "#ff0713"
 TEXT_COLOR = "#000000"  # Black for numbers
 BG_COLOR = "#FFFFFF"
