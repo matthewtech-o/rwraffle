@@ -69,7 +69,7 @@ st.markdown('<div class="title">EOYD Raffle Draw</div>', unsafe_allow_html=True)
 st.markdown("""
 <div class="instructions">
 Welcome to the EOYD Raffle Draw! Below are the 30 random numbers participating in this draw. 
-Click the button **once per winner** to reveal the lucky winners with a rolling effect!
+Click the button to reveal the lucky winners!
 </div>
 """, unsafe_allow_html=True)
 
