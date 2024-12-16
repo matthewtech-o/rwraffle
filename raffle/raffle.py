@@ -32,25 +32,30 @@ st.markdown(f"""
             background-color: {BG_COLOR};
         }}
         .title {{
-            font-size: 36px;
+            font-size: 40px;
             font-weight: bold;
             color: {PRIMARY_COLOR};
             text-align: center;
+            font-family: 'Arial', sans-serif;
         }}
         .winner {{
-            font-size: 28px;
+            font-size: 36px;
             color: {PRIMARY_COLOR};
             text-align: center;
+            font-family: 'Arial', sans-serif;
         }}
         .instructions {{
-            font-size: 18px;
+            font-size: 20px;
             color: {PRIMARY_COLOR};
             text-align: center;
+            font-family: 'Arial', sans-serif;
         }}
         .numbers {{
-            font-size: 16px;
+            font-size: 32px;
+            font-weight: bold;
             color: {TEXT_COLOR};
             text-align: center;
+            font-family: 'Courier New', monospace;
         }}
         .button {{
             background-color: {PRIMARY_COLOR} !important;
@@ -76,7 +81,7 @@ Click the button to reveal the lucky winners!
 # List of numbers (stored in session state to retain across button presses)
 if "numbers" not in st.session_state:
     st.session_state.numbers = [
-        001, 003, 007, 019, 026, 035, 097, 081, 073, 099, 058, 033,
+        1, 3, 7, 19, 26, 35, 97, 81, 73, 99, 58, 33,
         180, 365, 208, 537, 791, 850, 972, 623, 425, 777
     ]
 
@@ -85,7 +90,8 @@ if "winners" not in st.session_state:
 
 # Display the numbers in the draw
 st.markdown('<div class="instructions">**Numbers in the Draw:**</div>', unsafe_allow_html=True)
-st.markdown(f'<div class="numbers">{", ".join(map(str, st.session_state.numbers))}</div>', unsafe_allow_html=True)
+formatted_numbers = [f"{num:03d}" for num in st.session_state.numbers]  # Format numbers with leading zeros
+st.markdown(f'<div class="numbers">{", ".join(formatted_numbers)}</div>', unsafe_allow_html=True)
 
 # Pick a Winner Button
 if st.button("Pick a Winner", key="pick_winner"):
@@ -102,14 +108,15 @@ if st.button("Pick a Winner", key="pick_winner"):
 
         # Display winner with celebration animation
         st_lottie(lottie_winner, height=200, key="winner")
-        st.markdown(f'<div class="winner">🎉 The winner is: **{winner}** 🎉</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="winner">🎉 The winner is: **{winner:03d}** 🎉</div>', unsafe_allow_html=True)
     else:
         st.warning("All numbers have been picked!")
 
 # Display Winners So Far
 if st.session_state.winners:
     st.markdown('<div class="instructions">**Winners So Far:**</div>', unsafe_allow_html=True)
-    st.markdown(f'<div class="numbers">{", ".join(map(str, st.session_state.winners))}</div>', unsafe_allow_html=True)
+    formatted_winners = [f"{winner:03d}" for winner in st.session_state.winners]  # Format winners with leading zeros
+    st.markdown(f'<div class="numbers">{", ".join(formatted_winners)}</div>', unsafe_allow_html=True)
 
 # End Message
 if len(st.session_state.winners) >= 2:
