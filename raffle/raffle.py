@@ -61,6 +61,9 @@ st.markdown(f"""
             background-color: {PRIMARY_COLOR} !important;
             color: white !important;
         }}
+        .spacing {{
+            margin-top: 30px;
+        }}
     </style>
 """, unsafe_allow_html=True)
 
@@ -78,10 +81,14 @@ Click the button to reveal the lucky winners!
 </div>
 """, unsafe_allow_html=True)
 
+# Add spacing here
+st.markdown('<div class="spacing"></div>', unsafe_allow_html=True)
+
 # List of numbers (stored in session state to retain across button presses)
 if "numbers" not in st.session_state:
     st.session_state.numbers = [
-        1, 3, 7, 19, 26, 35, 97, 81, 73, 99, 58, 33, 180, 365, 208, 537, 791, 850, 972, 623, 425, 777
+        1, 3, 7, 19, 26, 35, 97, 81, 73, 99, 58, 33,
+        180, 365, 208, 537, 791, 850, 972, 623, 425, 777
     ]
 
 if "winners" not in st.session_state:
