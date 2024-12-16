@@ -76,8 +76,8 @@ Click the button to reveal the lucky winners!
 # List of numbers (stored in session state to retain across button presses)
 if "numbers" not in st.session_state:
     st.session_state.numbers = [
-        1, 3, 5, 7, 9, 13, 17, 19, 26, 35, 68, 97, 81, 73, 99, 42, 58, 33,
-        180, 365, 208, 537, 791, 112, 850, 972, 623, 425, 379, 777
+        1, 3, 7, 19, 26, 35, 97, 81, 73, 99, 58, 33,
+        180, 365, 208, 537, 791, 850, 972, 623, 425, 777
     ]
 
 if "winners" not in st.session_state:
@@ -93,7 +93,7 @@ if st.button("Pick a Winner", key="pick_winner"):
         # Show rolling animation
         st.markdown('<div class="instructions">Rolling the numbers... 🎲</div>', unsafe_allow_html=True)
         st_lottie(lottie_loading, height=150, key="loading")
-        time.sleep(3)  # Delay to simulate rolling
+        time.sleep(5)  # Delay to simulate rolling
         
         # Select the winner
         winner = random.choice(st.session_state.numbers)
